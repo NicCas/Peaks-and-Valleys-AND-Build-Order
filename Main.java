@@ -31,9 +31,9 @@ public class Main {
                 {"d", "c"},
         };
 
-        String[] c = buildOrder(p, d);
+        buildOrder(p, d);
 
-        System.out.println("Valid Build Order: " + Arrays.toString(c));
+        System.out.println("Valid Build Order: " + Arrays.toString(completed));
     }
 
     /* Code for Solving Question 1 */
@@ -82,7 +82,8 @@ public class Main {
     }
 
     /* Code for solving Question 2 */
-    static String[] buildOrder (String[] projects, String[][] dependencies) throws Exception {
+    static void buildOrder (String[] projects, String[][] dependencies) throws Exception
+    {
 
         completed = new String[projects.length];
         boolean possible = false;
@@ -115,25 +116,26 @@ public class Main {
         findRequ(dependencies, completed[1]);
 
         // If completed is not full, throw an exception
-        if (completedI < completed.length) {
+        if (completedI < completed.length)
             throw new Exception("Error: No Valid Build Order");
-        }
-
-        return completed;
     }
 
     // Traverse the dependants of each target, then recursively call the dependants of that dependant
-    static void findRequ(String[][] d, String target){
-        for (int i = 0; i < d.length; i++) {
-            if (d[i][0] == target){
+    static void findRequ(String[][] d, String target)
+    {
+        for (int i = 0; i < d.length; i++)
+        {
+            if (d[i][0] == target)
+            {
                 d[i][0] = null;
 
                 int onlyRequ = 0;
-                for (int j = 0; j < d.length; j ++){
+                for (int j = 0; j < d.length; j ++)
                     if (d[i][1] == d[j][1])
                         onlyRequ ++;
-                }
-                if (onlyRequ == 1){
+
+                if (onlyRequ == 1)
+                {
                     completed[completedI] = d[i][1];
                     completedI++;
                 }
