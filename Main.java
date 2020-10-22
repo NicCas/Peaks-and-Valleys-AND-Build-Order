@@ -6,7 +6,11 @@ public class Main {
     static  String[] completed = new String[0];
     static int completedI = 0;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)
+    {
+        long startTime;
+        long elapsedTime;
+
         System.out.println("Question 1:");
         int[] a = new int[10];
 
@@ -22,6 +26,7 @@ public class Main {
 
         System.out.println("Question 2:");
 
+        boolean success;
         String[] p = new String[]{"a", "b", "c", "d", "e", "f"};
         String[][] d = new String[][] {
                 {"a", "d"},
@@ -31,9 +36,462 @@ public class Main {
                 {"d", "c"},
         };
 
-        buildOrder(p, d);
+        startTime = System.currentTimeMillis();
+        success = buildOrder(p, d);
+        elapsedTime = System.currentTimeMillis() - startTime;
 
-        System.out.println("Valid Build Order: " + Arrays.toString(completed));
+        if (success){
+            System.out.println(p.length + " projects with " + d.length + " dependencies");
+            System.out.println("Valid Build Order: " + Arrays.toString(completed) + " in " + elapsedTime + " milliseconds");
+        } else {
+            System.out.println("No Valid Build Path. " + elapsedTime + " milliseconds");
+        }
+        System.out.println();
+
+        completedI = 0;
+        d = new String[][] {
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "c"},
+        };
+
+        startTime = System.currentTimeMillis();
+        success = buildOrder(p, d);
+        elapsedTime = System.currentTimeMillis() - startTime;
+
+        if (success){
+            System.out.println(p.length + " projects with " + d.length + " dependencies");
+            System.out.println("Valid Build Order: " + Arrays.toString(completed) + " in " + elapsedTime + " milliseconds");
+        } else {
+            System.out.println("No Valid Build Path. " + elapsedTime + " milliseconds");
+        }
+        System.out.println();
+
+
+        completedI = 0;
+        p = new String[]{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+        d = new String[][] {
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+                {"a", "d"},
+                {"f", "b"},
+                {"b", "d"},
+                {"f", "a"},
+                {"d", "h"},
+                {"a", "i"},
+                {"f", "e"},
+                {"i", "d"},
+                {"f", "a"},
+                {"j", "c"},
+        };
+
+        startTime = System.currentTimeMillis();
+        success = buildOrder(p, d);
+        elapsedTime = System.currentTimeMillis() - startTime;
+
+        if (success){
+            System.out.println(p.length + " projects with " + d.length + " dependencies");
+            System.out.println("Valid Build Order: " + Arrays.toString(completed) + " in " + elapsedTime + " milliseconds");
+        } else {
+            System.out.println("No Valid Build Path. " + elapsedTime + " milliseconds");
+        }
+        System.out.println();
+
     }
 
     /* Code for Solving Question 1 */
@@ -82,27 +540,24 @@ public class Main {
     }
 
     /* Code for solving Question 2 */
-    static void buildOrder (String[] projects, String[][] dependencies) throws Exception
+    static boolean buildOrder (String[] projects, String[][] dependencies)
     {
-
         completed = new String[projects.length];
         boolean possible = false;
 
-        boolean conditions;
-
-        // Check for projects that have no dependencies
+         // Check for projects that have no dependencies
         for (int i = 0; i < projects.length; i++)
         {
-            conditions = false;
+            boolean conditions = false;
             for (int j = 0; j < dependencies.length; j++)
                 if (projects[i] == dependencies[j][1])
                 {
                     conditions = true;
                     break;
                 }
-
             if (!conditions)
             {
+                System.out.print("");
                 completed[completedI] = projects[i];
                 completedI++;
                 possible = true;
@@ -111,13 +566,16 @@ public class Main {
 
         // If there are no projects that do not have a dependency, throw an exception
         if (!possible)
-            throw new Exception("Error: No Valid Build Order");
+            return false;
 
-        findRequ(dependencies, completed[1]);
+        for (int i = 0; i < completedI; i++)
+            findRequ(dependencies, completed[i]);
 
         // If completed is not full, throw an exception
         if (completedI < completed.length)
-            throw new Exception("Error: No Valid Build Order");
+            return false;
+
+        return true;
     }
 
     // Traverse the dependants of each target, then recursively call the dependants of that dependant
